@@ -1,0 +1,100 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="background" >
+
+  <div ngif="!isLoader">
+    <div class="row">
+      <!--navbar starts-->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><i class="fa fa-star fa-lg" aria-hidden="true"></i></a>
+          </div>
+          <div class="navbar-text navbar-right col-md-4" style="text-align:right;">
+            <input type="text" style="border: 0;outline: 0;background: transparent; border-bottom: 1px solid #fff;color:#fff;padding:0 2px;" placeholder="Search" [(ngModel)]="searchVal">
+            <a href="#" class="navbar-link"><i class="fa fa-search fa-2x text-right"  ></i></a>
+            <a routerLink = "/cart" class="navbar-link" style="margin:0 3px;"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a>
+          </div>
+        </div><!-- /.container-fluid -->
+      </nav>
+      <!--navbar ends-->
+    </div>
+
+    <div class="row">
+      <div class="col-md-8 filter-component">
+        <div class="row">
+          <div class="col-md-12 col-sm-6" *ngFor="let item of cartItems">
+            <div class="thumbnail">
+              <img class="imageHeight" src={{item.img_url}} alt="product image unavailable" >
+              <div style="margin-left:100px">
+              <div class="caption">
+                <p>{{item.name}}</p>
+              </div>
+              <div class="description">
+                <p><strong>
+                  <span>&#8377;</span> {{item.price}}
+                  <span style="color:grey;"> <s>{{item.discount}}</s></span>
+                  <span style="color:green; margin-left:10px;">{{calculateDiscountPercentage(item.price, item.discount) | number:'1.1-2'}} %Off </span>
+                  <div>
+                    <button class="button5" (click)="countVal=countVal-1"><i class="glyphicon glyphicon-minus">  </i></button>
+                    {{countVal}}
+                    <button class="button5" (click)="countVal=countVal+1"> <i class=" glyphicon glyphicon-plus">  </i> </button>
+                    <button class="button4" type="button" (click)="removeItemFromCart(item.id)">Remove</button>
+                  </div>
+                </strong></p>
+              </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-md-4 ">
+
+        <table style="width:100% ; background-color: white;">
+          <tr>
+            <th>Price Details </th>
+          </tr>
+          <tr>
+            <td>Price({{cartItems.length}} Item):</td>
+            <td>{{this.price}}</td>
+          </tr>
+          <tr>
+            <td>Discount:</td>
+            <td>{{this.discount}}</td>
+          </tr>
+          <hr>
+          <tr>
+            <td>Total Payable:</td>
+            <td>{{this.totalPayableVal}}</td>
+          </tr>
+        </table>
+
+
+      </div>
+
+    </div><!--wrpper ends -->
+  </div>
+
+  <!-- Footer -->
+  <footer class="page-footer font-small blue footer-default">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">©Copyright
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+
+
+
+
+
+
+
