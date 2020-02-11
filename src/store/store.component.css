@@ -1,6 +1,4 @@
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
-.leftPanel{float:left; width:40%}
+.leftPanel{float:left; width:40%;}
 .storeBox{float:left; width:170px;}
 .rightPanel{float:left;}
 
@@ -28,21 +26,9 @@ ul.sort-component li {float: left; cursor:pointer;}
 ul.sort-component li a {display: block;color: black;text-align: center;padding: 16px;text-decoration: none;border-bottom: 1px solid transparent;font-weight:bold;}
 ul.sort-component li a:hover {border-bottom: 1px solid blue;color:blue;}
 
-
-
 .button4 {
   border-radius: 12px;
   margin-left: 10px;
   margin-top: 10px;
-}
-.ng5-slider .ng5-slider-pointer {
-  cursor: pointer;
- width: 23px !important;
-  height: 25px;
-  top: -14px;
- background-color: coral !important;
-  /* border-color: blue; */
-  z-index: 3;
-  border-radius: 16px;
 }
 
